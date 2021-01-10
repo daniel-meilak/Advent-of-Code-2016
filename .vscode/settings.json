@@ -52,7 +52,8 @@
         "cstring": "cpp",
         "ratio": "cpp",
         "regex": "cpp",
-        "forward_list": "cpp"
+        "forward_list": "cpp",
+        "set": "cpp"
     },
     "cSpell.language": "en-GB",
     "cSpell.enableFiletypes": [
