@@ -20,11 +20,11 @@ int main(){
     std::vector<std::string> delimiters = {" "};
     std::vector<std::vector<std::string>> input = read_input_2D("input_test", delimiters);
 
-    std::vector<int> reg1 = {12,0,0,0};
-    std::vector<int> reg2 = {0,0,0,0};
+    std::vector<int> reg1 = {7,0,0,0};
+    std::vector<int> reg2 = {12,0,0,0};
 
     std::cout << "Answer (part 1): " << computer(reg1,input) << std::endl;
-    //std::cout << "Answer (part 2): " << computer(reg2,input) << std::endl;
+    std::cout << "Answer (part 2): " << computer(reg2,input) << std::endl;
 
     return 0;
 }
