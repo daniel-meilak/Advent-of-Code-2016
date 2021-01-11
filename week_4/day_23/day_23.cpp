@@ -12,13 +12,13 @@ void dec(const std::string &x, std::unordered_map<std::string, int> &reg);
 void jnz(unsigned int &i, const std::string &x, const std::string &y, std::unordered_map<std::string, int> &reg);
 void tgl(const unsigned int &i, const std::string &x, std::vector<std::vector<std::string>> &input, std::unordered_map<std::string, int> &reg);
 void mul(const std::string &b, const std::string &d, const std::string &a, std::unordered_map<std::string, int> &reg);
-int computer(const std::vector<int> &registers, std::vector<std::vector<std::string>> &input);
+int computer(const std::vector<int> &registers, std::vector<std::vector<std::string>> input);
 
 int main(){
 
     // read input into vector of vector of strings.
     std::vector<std::string> delimiters = {" "};
-    std::vector<std::vector<std::string>> input = read_input_2D("input_test", delimiters);
+    std::vector<std::vector<std::string>> input = read_input_2D("input", delimiters);
 
     std::vector<int> reg1 = {7,0,0,0};
     std::vector<int> reg2 = {12,0,0,0};
@@ -29,7 +29,7 @@ int main(){
     return 0;
 }
 
-int computer(const std::vector<int> &registers, std::vector<std::vector<std::string>> &input){
+int computer(const std::vector<int> &registers, std::vector<std::vector<std::string>> input){
     
     // map of reg
     std::unordered_map<std::string, int> reg;
