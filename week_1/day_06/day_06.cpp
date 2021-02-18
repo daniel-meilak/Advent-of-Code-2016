@@ -28,7 +28,7 @@ int main(){
 
     // extract columns
     for (std::string line : input){
-        for (unsigned int i=0; i<line.size(); i++){
+        for (size_t i=0; i<line.size(); i++){
             columns[i].push_back(line[i]);
         }
     }
