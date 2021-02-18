@@ -19,7 +19,7 @@ int main(){
     int count2 = 0;
 
     // work through ip addresses
-    for (const std::string & ip : input){
+    for (const std::string &ip : input){
 
         std::vector<std::string> hyper, non_hyper;
 
@@ -56,7 +56,7 @@ int main(){
 // checks if vector of strings contain ABBA sequence
 bool ABBA(std::vector<std::string> &sequences){
 
-    for ( std::string seq : sequences){
+    for (std::string seq : sequences){
 
         // sequence must be at least 4 characters long
         if (seq.size()<4){ continue; }
@@ -65,9 +65,7 @@ bool ABBA(std::vector<std::string> &sequences){
         for (int i=0; i<size; i++){
 
             // look for abba 
-            if (seq[i] == seq[i+3] && seq[i+1] == seq[i+2] && seq[i] != seq[i+1]){
-                return true;
-            }
+            if (seq[i] == seq[i+3] && seq[i+1] == seq[i+2] && seq[i] != seq[i+1]){ return true; }
         }
     }
 
@@ -93,9 +91,7 @@ bool ABA(std::vector<std::string> &hyper, std::vector<std::string> &non_hyper){
                 std::string bab = {seq[i+1], seq[i], seq[i+1]};
 
                 // look for BAB
-                if (BAB(hyper, bab)){
-                    return true;
-                }
+                if (BAB(hyper, bab)){ return true; }
             }
         }
     }
@@ -110,9 +106,7 @@ bool BAB(std::vector<std::string> &hyper, std::string bab){
     for ( std::string seq : hyper){
 
         // seach for BAB in each sequence
-        if (seq.find(bab) != std::string::npos){
-            return true;
-        }
+        if (seq.find(bab) != std::string::npos){ return true; }
     }
 
     return false;
