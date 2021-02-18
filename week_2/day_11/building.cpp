@@ -11,7 +11,7 @@
 //===================================================================================
 
 // building parametrised constructor
-building::building(int elevator, std::vector<floor> floors){
+building::building(int elevator, std::vector<floor_t> floors){
     this->elevator = elevator;
     this->floors   = floors;
 }
@@ -100,9 +100,7 @@ bool building::verify(){
         for (auto chip : micros){
 
             // complement must be in gens to be valid
-            if (std::find(gens.begin(), gens.end(),complement(chip)) == gens.end()){
-                return false;
-            }
+            if (std::find(gens.begin(), gens.end(),complement(chip))==gens.end()){ return false; }
         }
     }
 
@@ -112,8 +110,8 @@ bool building::verify(){
 // found solution if floor 4 contains all items
 bool building::is_solved(){
 
-    for (unsigned int i=0; i<floors.size()-1; i++){
-        if (floors[i].size() != 0){return false;}
+    for (size_t i=0; i<floors.size()-1; i++){
+        if (floors[i].size()!=0){ return false; }
     }
 
     return true;
@@ -142,13 +140,13 @@ thing complement(thing gen_or_micro){
 // moves item(s) from a floor to neighbouring floor. New building must be verified
 building move(building current, const int &dir, const std::vector<thing> &items){
 
-    floor &source = current.floors[current.elevator];
+    floor_t &source = current.floors[current.elevator];
 
     // move elevator and check if move is invalid
     current.elevator += dir;
     if (current.elevator < 0 || current.elevator > (int)current.floors.size()-1){return current;}
 
-    floor &dest   = current.floors[current.elevator];
+    floor_t &dest   = current.floors[current.elevator];
 
     // remove item(s) from source
     for (thing item : items){ source.erase(std::remove(source.begin(), source.end(), item), source.end()); }
@@ -172,57 +170,33 @@ std::vector<building> next_states(const building &state, std::vector<red_build> 
     int i = state.elevator;
 
     // 2 items moves
-    int floor_size = state.floors[i].size();
-    for (int j=0; j<floor_size; j++){
-        for (int k=j+1; k<floor_size; k++){
+    size_t floor_size = state.floors[i].size();
+    for (size_t j=0; j<floor_size; j++){
+        for (size_t k=j+1; k<floor_size; k++){
 
-            // up move and down move
-            // thing item1, item2;
-            // item1 = state.floors[i][j];
-            // item2 = state.floors[i][k];
-            // building move1, move2;
-            // move1 = move(state,  1, {item1, item2});
-            // move2 = move(state, -1, {item1, item2});
             building move1 = move(state,  1, {state.floors[i][j], state.floors[i][k]});
             building move2 = move(state, -1, {state.floors[i][j], state.floors[i][k]});
 
             // if valid, check if unique, then add to lists
-            if (move1.verify()){
-                if (unique_config(move1, uniques)){
-                    buildings.push_back(move1);
-                }
-            }
+            if (move1.verify() && unique_config(move1, uniques)){ buildings.push_back(move1); }
 
-            if (move2.verify()){
-                if (unique_config(move2, uniques)){
-                    buildings.push_back(move2);
-                }
-            }
+            if (move2.verify() && unique_config(move2, uniques)){ buildings.push_back(move2); }
         }    
     }
     
 
     // 1 item moves
-    for (int j=0; j<floor_size; j++){
+    for (size_t j=0; j<floor_size; j++){
 
         // up move and down move
         building move1 = move(state,  1, {state.floors[i][j]});
         building move2 = move(state, -1, {state.floors[i][j]});
 
         // if valid, check if unique, then add to lists
-        if (move1.verify()){
-            if (unique_config(move1, uniques)){
-                buildings.push_back(move1);
-            }
-        }
+        if (move1.verify() && unique_config(move1, uniques)){ buildings.push_back(move1); }
 
-        if (move2.verify()){
-            if (unique_config(move2, uniques)){
-                buildings.push_back(move2);
-            }
-        }    
+        if (move2.verify() && unique_config(move2, uniques)){ buildings.push_back(move2); }    
     }
-
 
     return buildings;    
 }
@@ -236,9 +210,7 @@ bool unique_config(const building &build1, std::vector<red_build> &uniques){
 
     // if new build is found in uniques, it is not unique
     for ( auto unique : uniques ){
-        if (new_build == unique){
-            return false;
-        }
+        if (new_build == unique){ return false; }
     }
 
     // not in uniques, add to uniques
@@ -261,9 +233,7 @@ building solve(const building & start_state){
         queue.pop_front();
 
         // if latest config is the solution, return
-        if (current.is_solved()){
-            return current;
-        }
+        if (current.is_solved()){ return current; }
 
         // find possible next steps from current
         std::vector<building> next_steps = next_states(current, uniques);

@@ -26,13 +26,11 @@ point::point(){
 // Struct operators
 //===================================================================================
 
-bool operator==(const point& lhs, const point& rhs)
-{
+bool operator==(const point& lhs, const point& rhs){
     return (lhs.x == rhs.x) && (lhs.y == rhs.y);
 }
 
 point operator+(const point& lhs, const point& rhs){
-
     return {lhs.x+rhs.x, lhs.y+rhs.y};
 }
 
@@ -91,9 +89,7 @@ point solve(const point &start, const point &end, std::vector<point> &uniques){
         queue.pop_front();
 
         // if latest config is the solution, return
-        if (current == end){
-            return current;
-        }
+        if (current == end){ return current; }
 
         // find possible next steps from current
         std::vector<point> next_points = neighbours(current, uniques);

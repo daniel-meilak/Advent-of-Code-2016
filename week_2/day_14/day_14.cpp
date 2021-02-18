@@ -16,7 +16,6 @@ std::string generate_hash(const std::string &word, const bool &part2);
 int main(){
 
     std::string input = "cuanljph";
-    // std::string input = "abc";
 
     // key stretching for part 2
     bool part1 = false;
@@ -65,12 +64,10 @@ int find_hash(const std::string &input, const bool &part2){
             int j = i-1000;
             if (j < 0){ j=0; };
 
-            while ( j != i ){
+            while (j!=i){
 
                 // search for triple and make sure it hasnt already occured
-                if ( first_triple(hashes[j], match) && (std::find(indexes.begin(), indexes.end(), j) == indexes.end()) ){
-                        indexes.push_back(j);
-                }
+                if (first_triple(hashes[j],match) && (std::find(indexes.begin(),indexes.end(),j)==indexes.end())){ indexes.push_back(j); }
                 j++;
             }
         }
@@ -93,9 +90,7 @@ std::string generate_hash(const std::string &word, const bool &part2){
                 hash = MD5(hash).hexdigest();
             }
         }
-        else {
-            hash = MD5(hash).hexdigest();
-        }
+        else { hash = MD5(hash).hexdigest(); }
 
         return hash;
 }
@@ -110,11 +105,9 @@ char quintuple(std::string word){
         char c = word[i];
 
         for (int j=i+1; j<i+5; j++){
-            check *= (c == word[j]);
+            check &= (c == word[j]);
         }
-        if (check){
-            return c;
-        }
+        if (check){ return c; }
     }
 
     return ' ';
@@ -127,12 +120,8 @@ bool first_triple(std::string word, char match){
 
     for (int i=0; i<=max; i++){
         if (word[i] == word[i+1] && word[i] == word[i+2]){
-            if ( word[i] == match ){
-                return true;
-            }
-            else {
-                break;
-            }
+            if ( word[i] == match ){ return true; }
+            else { break; }
         }
     }
 

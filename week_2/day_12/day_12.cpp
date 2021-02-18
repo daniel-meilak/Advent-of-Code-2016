@@ -9,7 +9,7 @@
 void copy(const std::string &x, const std::string &y, std::unordered_map<std::string, int> &reg);
 void inc(const std::string &x, std::unordered_map<std::string, int> &reg);
 void dec(const std::string &x, std::unordered_map<std::string, int> &reg);
-void jnz(unsigned int &i, const std::string &x, const std::string &y, std::unordered_map<std::string, int> &reg);
+void jnz(size_t &i, const std::string &x, const std::string &y, std::unordered_map<std::string, int> &reg);
 int computer(const std::vector<int> &registers, const std::vector<std::vector<std::string>> &input);
 
 int main(){
@@ -37,11 +37,11 @@ int computer(const std::vector<int> &registers, const std::vector<std::vector<st
     reg["d"] = registers[3];
 
     // work through instructions
-    for (unsigned int i=0; i<input.size(); i++){
+    for (size_t i=0; i<input.size(); i++){
 
         std::vector<std::string> line = input[i];
 
-        if (line[0] == "cpy"){ copy(line[1], line[2], reg); }
+        if      (line[0] == "cpy"){ copy(line[1], line[2], reg); }
         else if (line[0] == "jnz"){ jnz(i, line[1], line[2], reg); }
         else if (line[0] == "inc"){ inc(line[1], reg); }
         else if (line[0] == "dec"){ dec(line[1], reg); }
@@ -54,13 +54,9 @@ int computer(const std::vector<int> &registers, const std::vector<std::vector<st
 void copy(const std::string &x, const std::string &y, std::unordered_map<std::string, int> &reg){
 
     // if copying from register
-    if (x=="a" || x=="b" || x=="c" || x=="d"){
-        reg[y] = reg[x];
-    }
+    if (x=="a" || x=="b" || x=="c" || x=="d"){ reg[y] = reg[x]; }
     // otherwise copy from value
-    else {
-        reg[y] = std::stoi(x);
-    }
+    else { reg[y] = std::stoi(x); }
 }
 
 void inc(const std::string &x, std::unordered_map<std::string, int> &reg){
@@ -71,16 +67,14 @@ void dec(const std::string &x, std::unordered_map<std::string, int> &reg){
     reg[x]--;
 }
 
-void jnz(unsigned int &i, const std::string &x, const std::string &y, std::unordered_map<std::string, int> &reg){
+void jnz(size_t &i, const std::string &x, const std::string &y, std::unordered_map<std::string, int> &reg){
 
     // if x is a register
     if (x=="a" || x=="b" || x=="c" || x=="d"){
         if (reg[x]==0){return;}
     }
     // if x is a value
-    else {
-        if (std::stoi(x)==0){return;}
-    }
+    else if (std::stoi(x)==0){ return; }
 
     i += std::stoi(y)-1;
 }

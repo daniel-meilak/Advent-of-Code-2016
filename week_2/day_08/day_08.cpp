@@ -40,9 +40,12 @@ int main(){
         }
     }
 
+    //int count = grid_count(screen,true);
+
     std::cout << "Answer (part 1): " << count << std::endl;
     
     // print screen for part 2
+    std::cout << "Answer (part 2):" << std::endl;
     print_screen(screen);
 
     return 0;
@@ -66,7 +69,7 @@ void rotate_row(std::vector<std::vector<bool>> &screen, const int &a, const int 
 
     size_t size = screen[a].size();
     for (size_t i=0; i<size; i++){
-        screen[a][i] = copy[mod(i-b,size)];
+        screen[a][i] = copy[mod<int>(i-b,size)];
     }
 }
 
@@ -80,7 +83,7 @@ void rotate_col(std::vector<std::vector<bool>> &screen, const int &a, const int 
     for (size_t i=0; i<size; i++){ copy[i] = screen[i][a]; }
 
     for (size_t i=0; i<size; i++){
-        screen[i][a] = copy[mod(i-b,size)];
+        screen[i][a] = copy[mod<int>(i-b,size)];
     } 
 }
 

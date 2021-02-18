@@ -1,5 +1,4 @@
-#ifndef BUILDING_H
-#define BUILDING_H
+#pragma once
 
 #include<vector>
 #include<list>
@@ -20,17 +19,17 @@ struct thing{
 };
 
 // type of floor, contains generators or microchips
-typedef std::vector<thing> floor;
+typedef std::vector<thing> floor_t;
 
 // struct of building
 struct building{
     // variables
-    std::vector<floor> floors;
+    std::vector<floor_t> floors;
     int elevator;
     int steps = 0;
 
     // constructors
-    building(int elevator, std::vector<floor> floors);
+    building(int elevator, std::vector<floor_t> floors);
 
     // functions
     bool verify();
@@ -67,5 +66,3 @@ bool unique_config(const building &build1, std::vector<red_build> &uniques);
 
 // breadth first search algorithm to find the final state
 building solve(const building & start_state);
-
-#endif /* BUILDING_H */

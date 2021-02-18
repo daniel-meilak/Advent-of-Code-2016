@@ -23,9 +23,7 @@ int main(){
 
 long decompress(std::string input, bool part2){
 
-    if (input.find('(') == std::string::npos){
-        return input.size();
-    }
+    if (input.find('(') == std::string::npos){ return input.size(); }
 
     // output length
     long length = 0;
@@ -50,12 +48,8 @@ long decompress(std::string input, bool part2){
         input = input.substr(pos3+1);
 
         // add length of substring to total length
-        if (part2){
-            length += decompress( repeat(input.substr(0,a), b), part2 );
-        }
-        else {
-            length += repeat(input.substr(0,a), b).size();
-        }
+        if (part2){ length += decompress( repeat(input.substr(0,a), b), part2 ); }
+        else { length += repeat(input.substr(0,a), b).size(); }
 
         // remove substring from input
         input = input.substr(a);
