@@ -26,24 +26,16 @@ int main(){
     // work through input
     for (std::vector<std::string> line : input){
 
-        if (line[0] == "rect"){
-            square(screen, std::stoi(line[1]), std::stoi(line[2]));
-        }
-        else if (line[0] == "row"){
-            rotate_row(screen, std::stoi(line[1]), std::stoi(line[2]));
-        }
-        else if (line[0] == "column"){
-            rotate_col(screen, std::stoi(line[1]), std::stoi(line[2]));
-        }
-        else {
-            std::cout << "Error reading input" << std::endl;
-        }
+        if      (line[0] == "rect"  ){ square(screen, std::stoi(line[1]), std::stoi(line[2]));     }
+        else if (line[0] == "row"   ){ rotate_row(screen, std::stoi(line[1]), std::stoi(line[2])); }
+        else if (line[0] == "column"){ rotate_col(screen, std::stoi(line[1]), std::stoi(line[2])); }
+        else { std::cout << "Error reading input" << std::endl; }
     }
 
     // count lit pixels
     int count = 0;
-    for (unsigned int i=0; i<screen.size(); i++){
-        for (unsigned int j=0; j<screen[0].size(); j++){
+    for (size_t i=0; i<screen.size(); i++){
+        for (size_t j=0; j<screen[0].size(); j++){
             if (screen[i][j]){ count++; }
         }
     }
@@ -72,8 +64,8 @@ void rotate_row(std::vector<std::vector<bool>> &screen, const int &a, const int 
     // copy row
     std::vector<bool> copy = screen[a];
 
-    int size = screen[a].size();
-    for (int i=0; i<size; i++){
+    size_t size = screen[a].size();
+    for (size_t i=0; i<size; i++){
         screen[a][i] = copy[mod(i-b,size)];
     }
 }
@@ -81,13 +73,13 @@ void rotate_row(std::vector<std::vector<bool>> &screen, const int &a, const int 
 // rotate column A by B pixels
 void rotate_col(std::vector<std::vector<bool>> &screen, const int &a, const int &b){
 
-    int size = screen.size();
+    size_t size = screen.size();
 
     // copy column
     std::vector<bool> copy(size);
-    for (int i=0; i<size; i++){ copy[i] = screen[i][a]; }
+    for (size_t i=0; i<size; i++){ copy[i] = screen[i][a]; }
 
-    for (int i=0; i<size; i++){
+    for (size_t i=0; i<size; i++){
         screen[i][a] = copy[mod(i-b,size)];
     } 
 }
