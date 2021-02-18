@@ -21,9 +21,7 @@ int main(){
     // count all unique points with less than 50 steps
     int count = 0;
     for (point p : uniques){
-        if (p.steps <= 50){
-            count++;
-        }
+        if (p.steps<=50){ count++; }
     }
 
     std::cout << "Answer (part 2): " << count << std::endl;

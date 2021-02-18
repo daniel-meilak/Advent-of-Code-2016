@@ -1,5 +1,4 @@
-#ifndef BUILDING_H
-#define BUILDING_H
+#pragma once
 
 #include<vector>
 #include<list>
@@ -34,5 +33,3 @@ point solve(const point &start, const point &end, std::vector<point> &uniques);
 // Function to get no of set bits in binary 
 // representation of positive integer n 
 int count_set_bits(int n);
-
-#endif /* BUILDING_H */
