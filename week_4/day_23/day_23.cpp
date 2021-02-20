@@ -63,19 +63,13 @@ void tgl(const unsigned int &i, const std::string &x, std::vector<std::vector<st
     int pos;
 
     // if taking pos from register
-    if (x=="a" || x=="b" || x=="c" || x=="d"){
-        pos = reg[x];
-    }
+    if (x=="a" || x=="b" || x=="c" || x=="d"){ pos = reg[x]; }
     // otherwise pos is value
-    else {
-        pos = std::stoi(x);
-    }
+    else { pos = std::stoi(x); }
 
     // toggle according to register at i+pos
     // if i+pos is out of range continue
-    if ( (i+pos) >= input.size() || (i+pos) < 0 ){
-        return;
-    }
+    if ( (i+pos) >= input.size() || (i+pos) < 0 ){ return; }
 
     std::string &instr = input[i+pos][0];
     if (instr == "inc"){ instr = "dec"; }
@@ -83,14 +77,10 @@ void tgl(const unsigned int &i, const std::string &x, std::vector<std::vector<st
     else if (instr == "jnz"){ instr = "cpy"; }
     else if (instr == "cpy"){ instr = "jnz"; }
     else if (instr == "tgl"){ instr = "inc"; }
-    else {
-        std::cout << "There is a problem" << std::endl;
-    }
-
+    else { std::cout << "There is a problem" << std::endl; }
 }
 
 void mul(const std::string &b, const std::string &d, const std::string &a, std::unordered_map<std::string, int> &reg){
-
     reg[a] += reg[b] * reg[d];
 }
 
@@ -98,18 +88,12 @@ void copy(const std::string &x, const std::string &y, std::unordered_map<std::st
 
     // check for invalid instruction (skip if invalid)
     std::string r = "abcd";
-    if ( r.find(y) == std::string::npos ){
-        return;
-    }
+    if (r.find(y) == std::string::npos){ return; }
 
     // if copying from register
-    if (x=="a" || x=="b" || x=="c" || x=="d"){
-        reg[y] = reg[x];
-    }
+    if (x=="a" || x=="b" || x=="c" || x=="d"){ reg[y] = reg[x]; }
     // otherwise copy from value
-    else {
-        reg[y] = std::stoi(x);
-    }
+    else { reg[y] = std::stoi(x); }
 }
 
 void inc(const std::string &x, std::unordered_map<std::string, int> &reg){
@@ -124,19 +108,13 @@ void jnz(unsigned int &i, const std::string &x, const std::string &y, std::unord
 
     // if x is a register
     if (x=="a" || x=="b" || x=="c" || x=="d"){
-        if (reg[x]==0){return;}
+        if (reg[x]==0){ return; }
     }
     // if x is a value
-    else {
-        if (std::stoi(x)==0){return;}
-    }
+    else if (std::stoi(x)==0){ return; }
 
     // if y is a register
-    if (y=="a" || y=="b" || y=="c" || y=="d"){
-        i += reg[y]-1;
-    }
+    if (y=="a" || y=="b" || y=="c" || y=="d"){ i += reg[y]-1; }
     // if y is a value
-    else {
-        i += std::stoi(y)-1;
-    }
+    else { i += std::stoi(y)-1; }
 }

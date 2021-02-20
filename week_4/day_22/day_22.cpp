@@ -58,9 +58,7 @@ int main(){
                     if (x1==x2 && y1==y2){ continue; }
 
                     // check if data fits
-                    if (grid[x2][y2].avail >= grid[x1][y1].used){
-                        pairs++;
-                    }
+                    if (grid[x2][y2].avail >= grid[x1][y1].used){ pairs++; }
                 }
             }
         }
@@ -73,25 +71,15 @@ int main(){
         for (int y=1; y<ymax; y++){
 
             // destination
-            if (x==1 && y==1){
-                std::cout << 'S';
-            }
+            if (x==1 && y==1){ std::cout << 'S'; }
             // goal data
-            else if (x==34 && y==1){
-                std::cout << 'G';
-            }
+            else if (x==34 && y==1){ std::cout << 'G'; }
             // unusable nodes
-            else if (grid[x][y].full){
-                std::cout << '#';
-            }
+            else if (grid[x][y].full){ std::cout << '#'; }
             // empty node starting pos
-            else if (grid[x][y].used == 0){
-                std::cout << '_';
-            }
+            else if (grid[x][y].used == 0){ std::cout << '_'; }
             // moveable data
-            else {
-                std::cout << '.';
-            }
+            else { std::cout << '.'; }
         }
         std::cout << std::endl;
     }
