@@ -91,9 +91,7 @@ int solve(const point &start, const point &end, const std::vector<std::string> &
         queue.pop_front();
 
         // if latest config is the solution, return
-        if (current == end){
-            return current.steps;
-        }
+        if (current == end){ return current.steps; }
 
         // find possible next steps from current
         std::vector<point> next_points = neighbours(current, uniques, input);
