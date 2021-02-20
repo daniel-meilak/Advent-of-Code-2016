@@ -30,9 +30,7 @@ int timing(std::vector<std::vector<std::string>> input, const bool part2){
     // vector of starting positions
     std::vector<int> start_pos;
 
-    if (part2){
-        input.push_back({"7","11","0"});
-    }
+    if (part2){ input.push_back({"7","11","0"}); }
 
     // fill vectors from input
     for ( auto line : input ){
@@ -46,10 +44,10 @@ int timing(std::vector<std::vector<std::string>> input, const bool part2){
     bool ball_passes = false;
     while (!ball_passes){
         ball_passes = true;
-        for (unsigned int i=0; i<input.size(); i++){
-            ball_passes *= ((start_pos[i] + i+1 + t) % sizes[i] == 0);
+        for (size_t i=0; i<input.size(); i++){
+            ball_passes &= ((start_pos[i] + i+1 + t) % sizes[i] == 0);
         }
-        if (!ball_passes){t++;}
+        if (!ball_passes){ t++; }
     }
 
     return t;
