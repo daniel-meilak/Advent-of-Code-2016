@@ -64,13 +64,9 @@ std::string reduce(const std::string &data){
     for (int i=0; i<max; i+=2){
 
         // if the same ("11" or "00")
-        if (data[i] == data[i+1]){
-            checksum.push_back('1');
-        }
+        if (data[i] == data[i+1]){ checksum.push_back('1'); }
         // if different ("01" or "10")
-        else {
-            checksum.push_back('0');
-        }
+        else { checksum.push_back('0'); }
     }
 
     return checksum;

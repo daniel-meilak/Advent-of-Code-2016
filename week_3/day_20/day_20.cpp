@@ -35,9 +35,7 @@ int main(){
         const long long &high = input[i][1];
 
         // if range is connect, increase max to next high
-        if ( low <= max+1LL && high > max){
-            max = high;
-        }
+        if ( low <= max+1LL && high > max){ max = high; }
         // if range is disconnected, add gap to allowed
         else if ( low > max+1LL){
             if (ip==0LL){ ip = max+1LL; }

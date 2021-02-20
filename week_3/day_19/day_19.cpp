@@ -10,8 +10,6 @@
 // forward function declarations
 int part1(const int &input);
 int part2(const int &input);
-void advance_cyclic(std::list<std::pair<int, int>>::iterator &it, const int &n, std::list<std::pair<int, int>> &elves);
-std::list<std::pair<int, int>>::iterator next_cyclic(std::list<std::pair<int, int>>::iterator it, const int &n, std::list<std::pair<int, int>> &elves);
 
 int main(){
 
@@ -68,13 +66,9 @@ int part2(const int &input){
         first.pop_front();
 
         // if the lists are the same size take from end of first
-        if (first.size() == second.size()){
-            first.pop_back();
-        }
+        if (first.size() == second.size()){ first.pop_back(); }
         // else take from front of second
-        else {
-            second.pop_front();
-        }
+        else { second.pop_front(); }
 
         // put the 1st elf from first at the back of second
         second.push_back(current);
@@ -86,30 +80,4 @@ int part2(const int &input){
     }
 
     return first.front();
-}
-
-// like std::advance but cyclic
-void advance_cyclic(std::list<std::pair<int, int>>::iterator &it, const int &n, std::list<std::pair<int, int>> &elves){
-    for (int i=0; i<n; i++){
-        if (it == --elves.end()){
-            it = elves.begin();
-        }
-        else {
-            it++;
-        }
-    }
-}
-
-// like std::next but cyclic
-std::list<std::pair<int, int>>::iterator next_cyclic(std::list<std::pair<int, int>>::iterator it, const int &n, std::list<std::pair<int, int>> &elves){
-    for (int i=0; i<n; i++){
-        if (it == --elves.end()){
-            it = elves.begin();
-        }
-        else {
-            it++;
-        }
-    }
-
-    return it;
 }

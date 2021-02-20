@@ -29,8 +29,7 @@ point::point(){
 // Struct operators
 //===================================================================================
 
-bool operator==(const point& lhs, const point& rhs)
-{
+bool operator==(const point& lhs, const point& rhs){
     return (lhs.x == rhs.x) && (lhs.y == rhs.y) && (lhs.path == rhs.path);
 }
 
@@ -41,7 +40,6 @@ bool operator==(const point& lhs, const point& rhs)
 // verify point is in positive quadrand 
 // and not wall
 bool point::is_valid(){
-
     return (x >= 0) && (x < 4) && (y >= 0) && (y < 4);
 }
 
@@ -61,30 +59,22 @@ std::vector<point> neighbours(const point &pos){
     if (char_check(hash,0)){
         point next(pos.x,pos.y-1,pos.path+"U");
         next.steps = pos.steps+1;
-        if (next.is_valid()){
-            open.push_back(next);
-        }
+        if (next.is_valid()){ open.push_back(next); }
     }    
     if (char_check(hash,1)){
         point next(pos.x,pos.y+1,pos.path+"D");
         next.steps = pos.steps+1;
-        if (next.is_valid()){
-            open.push_back(next);
-        }
+        if (next.is_valid()){ open.push_back(next); }
     }
     if (char_check(hash,2)){
         point next(pos.x-1,pos.y,pos.path+"L");
         next.steps = pos.steps+1;
-        if (next.is_valid()){
-            open.push_back(next);
-        }
+        if (next.is_valid()){ open.push_back(next); }
     }
     if (char_check(hash,3)){
         point next(pos.x+1,pos.y,pos.path+"R");
         next.steps = pos.steps+1;
-        if (next.is_valid()){
-            open.push_back(next);
-        }
+        if (next.is_valid()){ open.push_back(next); }
     }
 
     return open;    
@@ -94,9 +84,7 @@ std::vector<point> neighbours(const point &pos){
 bool char_check(const std::string &hash, const int &n){
     char c = hash[n];
 
-    if (c=='b' || c=='c' || c=='d' || c=='e' || c=='f'){
-        return true;
-    }
+    if (c=='b' || c=='c' || c=='d' || c=='e' || c=='f'){ return true; }
 
     return false;
 }
@@ -112,9 +100,7 @@ point solve(const point &start, const point &end){
         queue.pop_front();
 
         // if latest config is the solution, return
-        if (current.x == end.x && current.y == end.y){
-            return current;
-        }
+        if (current.x == end.x && current.y == end.y){ return current; }
 
         // find possible next steps from current
         std::vector<point> next_points = neighbours(current);

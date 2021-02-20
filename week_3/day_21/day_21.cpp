@@ -54,7 +54,6 @@ std::string part1(std::string &pass, const std::vector<std::vector<std::string>>
             else { rotate_based(pass, line[4][0]); }
         }
         else if (line[0] == "move"){ move(pass, std::stoi(line[2]), std::stoi(line[4])); }
-
     }
 
     return pass;
@@ -86,7 +85,6 @@ std::string part2(std::string &pass, const std::vector<std::vector<std::string>>
             else { rotate_based_r(pass, line[4][0]); }
         }
         else if (line[0] == "move"){ move(pass, std::stoi(line[4]), std::stoi(line[2])); }
-
     }
 
     return pass;
@@ -114,25 +112,21 @@ void rotate_based(std::string &word, const char &c){
 
     size_t pos = word.find(c);
 
-    if (pos < 4){
-        rotate(word, -(1+pos));
-    }
-    else {
-        rotate(word, -(2+pos));
-    }
+    if (pos < 4){ rotate(word, -(1+pos)); }
+    else { rotate(word, -(2+pos)); }
 }
 
 void rotate_based_r(std::string &word, const char &c){
 
     size_t pos = word.find(c);
 
-    if (pos == 0){ rotate(word, 1); }
+    if      (pos == 0){ rotate(word, 1); }
     else if (pos == 1){ rotate(word, 1); }
-    else if (pos == 2){ rotate(word, -2); }
+    else if (pos == 2){ rotate(word,-2); }
     else if (pos == 3){ rotate(word, 2); }
-    else if (pos == 4){ rotate(word, -1); }
+    else if (pos == 4){ rotate(word,-1); }
     else if (pos == 5){ rotate(word, 3); }
-    else if (pos == 7){ rotate(word, -4); }
+    else if (pos == 7){ rotate(word,-4); }
 }
 
 void move(std::string &word, const int &pos1, const int &pos2){
@@ -141,10 +135,6 @@ void move(std::string &word, const int &pos1, const int &pos2){
 
     word.erase(word.begin()+pos1);
 
-    if (pos2 == (int)word.size()){
-        word.push_back(c);
-    }
-    else {
-        word.insert(word.begin()+pos2,c);
-    }
+    if (pos2 == (int)word.size()){ word.push_back(c); }
+    else { word.insert(word.begin()+pos2,c); }
 }
