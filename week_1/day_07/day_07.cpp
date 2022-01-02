@@ -12,7 +12,7 @@ bool BAB(std::vector<std::string> &hyper, std::string bab);
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input", "");
+    std::vector<std::string> input = read_input("input_07", "");
 
     // valid ip adresses for part 1 and 2
     int count1 = 0;

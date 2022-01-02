@@ -12,7 +12,7 @@ std::string passcode(const std::vector<std::string> &keypad, const std::vector<s
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input", "");
+    std::vector<std::string> input = read_input("input_02", "");
 
     // square keypads
     std::vector<std::string> keypad1 = {"123","456","789"};

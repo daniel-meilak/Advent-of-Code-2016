@@ -15,7 +15,7 @@ std::string generate_hash(const std::string &word, const bool &part2);
 
 int main(){
 
-    std::string input = "cuanljph";
+    std::string input = read_line("input_14");
 
     // key stretching for part 2
     bool part1 = false;

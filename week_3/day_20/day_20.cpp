@@ -14,7 +14,7 @@ int main(){
 
     // read input into vector of vector of strings.
     std::vector<std::string> delimiters = {"-"};
-    std::vector<std::vector<long long>> input = input_to_llint_2D(read_input_2D("input", delimiters));
+    std::vector<std::vector<long long>> input = input_to_llint_2D(read_input_2D("input_20", delimiters));
 
     // sort input according to first column
     std::sort(input.begin(), input.end(), sortcol);

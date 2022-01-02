@@ -18,7 +18,7 @@ int main(){
 
     // read input into vector of vector of strings.
     std::vector<std::string> delimiters = {" ", "with", "letter", "step", "through", "of", "to"};
-    std::vector<std::vector<std::string>> input = read_input_2D("input", delimiters);
+    std::vector<std::vector<std::string>> input = read_input_2D("input_21", delimiters);
 
     // passwords
     std::string pass1 = "abcdefgh";

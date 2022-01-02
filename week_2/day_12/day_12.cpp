@@ -16,7 +16,7 @@ int main(){
 
     // read input into vector of vector of strings.
     std::vector<std::string> delimiters = {" "};
-    std::vector<std::vector<std::string>> input = read_input_2D("input", delimiters);
+    std::vector<std::vector<std::string>> input = read_input_2D("input_12", delimiters);
 
     std::vector<int> reg1 = {0,0,0,0};
     std::vector<int> reg2 = {0,0,1,0};

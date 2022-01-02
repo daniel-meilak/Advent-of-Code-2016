@@ -29,7 +29,7 @@ int main(){
 
     // read input into vector of vector of strings.
     std::vector<std::string> delimiters = {"goes to", "gives low to", "and high to", " "};
-    std::vector<std::vector<std::string>> input = read_input_2D("input", delimiters);
+    std::vector<std::vector<std::string>> input = read_input_2D("input_10", delimiters);
 
     // map of bots and outputs
     std::unordered_map<std::string, carrier> tree;

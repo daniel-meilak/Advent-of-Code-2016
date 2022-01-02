@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<cstdlib>
 #include"../../Utils/utils.h"
-#include"md5.cpp"
+#include"md5.h"
 
 int main(){
 

@@ -21,7 +21,7 @@ struct{
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input", "");
+    std::vector<std::string> input = read_input("input_06", "");
 
     // vector of strings of input columns
     std::vector<std::string> columns(input[0].size());

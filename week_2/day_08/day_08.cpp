@@ -15,7 +15,7 @@ int main(){
 
     // read input into vector of vector of strings.
     std::vector<std::string> delimiters = {" ", "x", "y", "rotate", "=", "by"};
-    std::vector<std::vector<std::string>> input = read_input_2D("input", delimiters);
+    std::vector<std::vector<std::string>> input = read_input_2D("input_08", delimiters);
 
     int width  = 50;
     int height =  6;

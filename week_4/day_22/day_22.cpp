@@ -16,7 +16,7 @@ struct node{
 int main(){
     // read input into vector of vector of strings.
     std::vector<std::string> delimiters = {"/dev/grid/node", "-", " ", "x", "y", "T", "%"};
-    std::vector<std::vector<int>> input = input_to_int_2D(read_input_2D("input", delimiters));
+    std::vector<std::vector<int>> input = input_to_int_2D(read_input_2D("input_22", delimiters));
 
     // width height with padding
     const int height = 34 + 2;

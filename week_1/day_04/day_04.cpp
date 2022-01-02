@@ -23,7 +23,7 @@ struct{
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input", "");
+    std::vector<std::string> input = read_input("input_04", "");
 
     // user regex to parse name, id and checksum
     std::regex r_name(R"(^[a-z\-]+)");

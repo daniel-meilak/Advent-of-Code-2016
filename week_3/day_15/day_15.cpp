@@ -11,7 +11,7 @@ int main(){
     
     // read input into vector of vector of strings.
     std::vector<std::string> delimiters = {"Disc #", "has", "positions; at time=0, it is at position", " ", "."};
-    std::vector<std::vector<std::string>> input = read_input_2D("input", delimiters);
+    std::vector<std::vector<std::string>> input = read_input_2D("input_15", delimiters);
 
     std::cout << "Answer (part 1): " << timing(input,false) << std::endl;
     std::cout << "Answer (part 2): " << timing(input,true)  << std::endl;

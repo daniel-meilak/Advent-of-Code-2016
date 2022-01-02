@@ -11,7 +11,7 @@ std::string calc_checksum(const std::string &input, const int &size);
 
 int main(){
 
-    std::string input = "10111100110001111";
+    std::string input = read_line("input_16");
 
     // required size of data
     int size1 = 272;

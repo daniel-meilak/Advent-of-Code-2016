@@ -13,7 +13,7 @@ int part2(const int &input);
 
 int main(){
 
-    int input = 3017957;
+    int input = std::stoi(read_line("input_19"));
 
     std::cout << "Answer (part 1): " << part1(input) << std::endl;
     std::cout << "Answer (part 2): " << part2(input) << std::endl;

@@ -10,7 +10,7 @@ int safe_trap(const std::string &input, const int &rows);
 int main(){
 
     // read input into string
-    std::string input = read_line("input", {});
+    std::string input = read_line("input_18", {});
 
     const int rows1 = 40;
     const int rows2 = 400000;
