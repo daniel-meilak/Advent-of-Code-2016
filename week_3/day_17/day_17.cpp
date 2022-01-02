@@ -10,7 +10,7 @@
 int main(){
 
     //std::string input = "kglvqrro";
-    std::string input = "pslxynzg";
+    std::string input = read_line("input_17");
 
     // start and end points
     point start(0,0,input);

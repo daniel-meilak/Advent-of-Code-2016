@@ -69,7 +69,7 @@ void tgl(const unsigned int &i, const std::string &x, std::vector<std::vector<st
 
     // toggle according to register at i+pos
     // if i+pos is out of range continue
-    if ( (i+pos) >= input.size() || (i+pos) < 0 ){ return; }
+    if ( (i+pos) >= input.size() ){ return; }
 
     std::string &instr = input[i+pos][0];
     if (instr == "inc"){ instr = "dec"; }

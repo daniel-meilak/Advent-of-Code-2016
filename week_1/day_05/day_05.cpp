@@ -8,7 +8,7 @@
 
 int main(){
 
-    std::string input = "uqwqemis";
+    std::string input = read_line("input_05");
 
     // index
     int index = 4000000;

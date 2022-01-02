@@ -34,7 +34,7 @@ int main(){
     int sum = 0;
 
     // id of north-pole-objects
-    int id_north_pole;
+    int id_north_pole{0};
 
     // work through input
     for (const std::string & line : input){
