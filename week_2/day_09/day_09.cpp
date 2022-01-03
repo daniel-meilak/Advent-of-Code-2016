@@ -12,7 +12,7 @@ std::string repeat(std::string word, int n);
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> full_input = read_input("input_09", "");
+    std::vector<std::string> full_input = read_input("input_09");
     std::string input = full_input[0];
 
     std::cout << "Answer (part 1): " << decompress(input,false) << std::endl;

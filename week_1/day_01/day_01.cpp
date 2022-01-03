@@ -11,7 +11,7 @@ void move(int &dir, char &turn, int dist, int &x, int &y, std::vector<std::vecto
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input_01", ", ");
+    std::vector<std::string> input = read_input("input_01", {", "});
 
     // grid of visited locations
     std::vector<std::vector<bool>> grid(1000, std::vector<bool>(1000,false));

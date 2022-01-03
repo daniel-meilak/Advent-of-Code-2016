@@ -12,7 +12,7 @@
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input_24", "");
+    std::vector<std::string> input = read_input("input_24");
 
     // find numbered positions
     std::vector<std::vector<int>> pos;
