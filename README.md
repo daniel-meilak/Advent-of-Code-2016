@@ -1,3 +1,5 @@
+[![CMake](https://github.com/daniel-meilak/Advent-of-Code-2016/actions/workflows/cmake.yml/badge.svg)](https://github.com/daniel-meilak/Advent-of-Code-2016/actions/workflows/cmake.yml)
+
 ### Advent of Code 2016
 
 Started 4 Jan 2020  
