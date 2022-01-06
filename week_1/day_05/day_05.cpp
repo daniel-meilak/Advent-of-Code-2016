@@ -3,8 +3,22 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
+#include<sstream>
+#include<iomanip>
+#include<openssl/md5.h>
 #include"../../Utils/utils.h"
-#include"md5.h"
+
+std::string get_md5(const std::string& input){
+    
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5(reinterpret_cast<const unsigned char*>(input.c_str()), input.size(), result);
+
+    std::ostringstream sout;
+    sout << std::hex << std::setfill('0');
+    for(long long c: result){ sout << std::setw(2) << (long long)c; }
+
+    return sout.str();
+}
 
 int main(){
 
@@ -28,12 +42,12 @@ int main(){
     while (std::find(filled.begin(), filled.end(), false) != filled.end()){
 
         hash = input+std::to_string(index);
-        hash = MD5(hash).hexdigest();
+        hash = get_md5(hash);
 
         while (hash.substr(0,5)!="00000"){
             index++;
             hash = input + std::to_string(index);
-            hash = MD5(hash).hexdigest();
+            hash = get_md5(hash);
         }
 
         // part 1

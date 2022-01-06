@@ -6,8 +6,11 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
+#include<sstream>
+#include<iomanip>
+#include<openssl/md5.h>
 #include"building.h"
-#include"md5.h"
+
 
 //===================================================================================
 // struct definitions
@@ -41,6 +44,8 @@ bool char_check(const std::string &hash, const int &n);
 
 // find longest path length from start to end
 int longest_path(const point &start, const point &end);
+
+std::string get_md5(const std::string& input);
 
 //===================================================================================
 // Struct Constructors
@@ -86,7 +91,7 @@ bool point::is_valid(){
 std::vector<point> neighbours(const point &pos){
 
     // take current path from pos and find hash
-    std::string hash = MD5(pos.path).hexdigest();
+    std::string hash = get_md5(pos.path);
 
     // vector of next positions
     std::vector<point> open;
@@ -178,4 +183,16 @@ int longest_path(const point &start, const point &end){
     }
 
     return lengths.back();
+}
+
+std::string get_md5(const std::string& input){
+    
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5(reinterpret_cast<const unsigned char*>(input.c_str()), input.size(), result);
+
+    std::ostringstream sout;
+    sout << std::hex << std::setfill('0');
+    for(long long c: result){ sout << std::setw(2) << (long long)c; }
+
+    return sout.str();
 }

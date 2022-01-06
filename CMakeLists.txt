@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(AOC21 VERSION 1.0)
+project(AOC16 VERSION 1.0)
 
 # compiler arguments
 if (MSVC)
@@ -71,6 +71,7 @@ foreach(day RANGE 1 25)
    # add each executable
    add_executable(day_${day} ${PROJECT_SOURCE_DIR}/week_${week}/day_${day}/day_${day}.cpp)
    set_target_properties(day_${day} PROPERTIES OUTPUT_NAME "day_${day}.exe")
+   target_link_libraries(day_${day} PUBLIC crypto)
 
    # copy input over
    configure_file(${PROJECT_SOURCE_DIR}/week_${week}/day_${day}/input_${day} ${PROJECT_BINARY_DIR}/input_${day} COPYONLY)

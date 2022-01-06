@@ -4,10 +4,14 @@
 #include<algorithm>
 #include<cstdlib>
 #include<utility>
+#include<sstream>
+#include<iomanip>
+#include<openssl/md5.h>
 #include"../../Utils/utils.h"
-#include"md5.h"
+
 
 // forward function declaration
+std::string get_md5(const std::string& input);
 int find_hash(const std::string &input, const bool &part2);
 char quintuple(std::string word);
 bool first_triple(std::string word, char match);
@@ -25,6 +29,18 @@ int main(){
     std::cout << "Answer (part 2): " << find_hash(input,part2) << std::endl;
 
     return 0;
+}
+
+std::string get_md5(const std::string& input){
+    
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5(reinterpret_cast<const unsigned char*>(input.c_str()), input.size(), result);
+
+    std::ostringstream sout;
+    sout << std::hex << std::setfill('0');
+    for(long long c: result){ sout << std::setw(2) << (long long)c; }
+
+    return sout.str();
 }
 
 // find 64th hash index
@@ -87,10 +103,10 @@ std::string generate_hash(const std::string &word, const bool &part2){
 
         if (part2){
             for (int k=0; k<2017; k++){
-                hash = MD5(hash).hexdigest();
+                hash = get_md5(hash);
             }
         }
-        else { hash = MD5(hash).hexdigest(); }
+        else { hash = get_md5(hash); }
 
         return hash;
 }
