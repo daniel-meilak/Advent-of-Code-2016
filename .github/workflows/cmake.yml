@@ -29,10 +29,12 @@ jobs:
         platform: x64
 
     - name: Configure openssl
-      run: cd openssl
-      run: ./configure
-      run: make -j4
-      run: cd ..
+      run: |
+        cd openssl
+        ./configure
+        make -j4
+        cd ..
+
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
