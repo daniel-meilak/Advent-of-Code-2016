@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // forward function declaration
 void square(std::vector<std::vector<bool>> &screen, const int &a, const int &b);

@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<cstdlib>
 #include<unordered_map>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 void copy(const std::string &x, const std::string &y, std::unordered_map<std::string, int> &reg);
 void inc(const std::string &x, std::unordered_map<std::string, int> &reg);

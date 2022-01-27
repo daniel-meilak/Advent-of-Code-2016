@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<cstdlib>
 #include<unordered_map>
-#include"../../Utils/utils.h"
+#include"utils.h"
 #include"building.h"
 
 const std::unordered_map<std::string,std::string> elem = {{"thulium","Th"},{"plutonium","Pl"},{"strontium","St"},{"promethium","Pr"},{"ruthenium","Ru"}};

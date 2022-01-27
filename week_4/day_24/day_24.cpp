@@ -6,7 +6,7 @@
 #include<cctype>
 #include<map>
 #include<utility>
-#include"../../Utils/utils.h"
+#include"utils.h"
 #include"building.h"
 
 int main(){

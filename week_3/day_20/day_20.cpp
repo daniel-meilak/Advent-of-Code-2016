@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // sorting function for vec of vec of llint
 bool sortcol( const std::vector<long long> &lhs, const std::vector<long long> &rhs){

@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 int part_1(std::vector<std::vector<int>> input);
 int part_2(std::vector<std::vector<int>> input);

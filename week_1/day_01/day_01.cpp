@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // Forward function declarations
 void move(int &dir, char &turn, int dist, int &x, int &y, std::vector<std::vector<bool>> &grid, std::vector<int> &visit_dist);

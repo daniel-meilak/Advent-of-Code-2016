@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<unordered_map>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // Forward functino declarations
 std::string passcode(const std::vector<std::string> &keypad, const std::vector<std::string> &input);

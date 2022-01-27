@@ -5,7 +5,7 @@
 #include<algorithm>
 #include<utility>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // forward function declarations
 int part1(const int &input);

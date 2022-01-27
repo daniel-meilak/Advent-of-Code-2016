@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // sorting function for frequency of letters in string.
 // First sorts by freq of letters, then alphabetically

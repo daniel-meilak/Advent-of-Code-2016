@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 bool ABBA(std::vector<std::string> &sequences);
 bool ABA(std::vector<std::string> &hyper, std::vector<std::string> &non_hyper);

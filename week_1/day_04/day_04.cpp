@@ -5,7 +5,7 @@
 #include<cstdlib>
 #include<utility>
 #include<regex>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // sorting function for frequency of letters in string.
 // First sorts by freq of letters, then alphabetically

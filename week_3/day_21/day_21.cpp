@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 void swap_letter(std::string &word, const char &c1, const char &c2);
 void rotate(std::string &word, const int &n);
