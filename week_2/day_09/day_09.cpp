@@ -6,7 +6,7 @@
 #include"utils.h"
 
 // forward function declarations
-long decompress(std::string input, bool part2);
+long long decompress(std::string input, bool part2);
 std::string repeat(std::string word, int n);
 
 int main(){
@@ -21,12 +21,12 @@ int main(){
     return 0;
 }
 
-long decompress(std::string input, bool part2){
+long long decompress(std::string input, bool part2){
 
     if (input.find('(') == std::string::npos){ return input.size(); }
 
     // output length
-    long length = 0;
+    long long length = 0;
 
     while (input.find('(') != std::string::npos){
 
